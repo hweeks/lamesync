@@ -1,5 +1,8 @@
-define(['jquery', 'underscore', 'backbone', 'Marionette', 'stache!../templates/main-view'],
-  function ($, _, Backbone, Marionette, MainTemplate) {
+define(['jquery', 'underscore', 'backbone', 'Marionette',
+  'stache!../templates/main-view',
+  '../views/login-view',
+  '../views/player-view'],
+  function ($, _, Backbone, Marionette, MainTemplate, LoginView, PlayerView) {
     return MainView = Marionette.LayoutView.extend({
       el: '#container',
       template: MainTemplate,
@@ -8,8 +11,17 @@ define(['jquery', 'underscore', 'backbone', 'Marionette', 'stache!../templates/m
         body: '#body',
         footer: '#footer'
       },
+      initialize: function(){
+        this.listenTo(Backbone, 'show:player', this.showPlayer);
+      },
       onRender: function(){
-        console.log("View Rendered.");
+        var loginView = new LoginView();
+        this.body.show(loginView);
+      },
+      showPlayer: function(){
+        var playerView = new PlayerView();
+        this.body.empty();
+        this.body.show(playerView);
       }
     });
   }
