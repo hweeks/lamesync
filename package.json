@@ -1,0 +1,19 @@
+{
+  "name": "marionette-framework",
+  "version": "1.0.0",
+  "description": "A very simple Marionette framework",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:hweeks/marionette-framework.git"
+  },
+  "author": "Harris Weeks @hweeks",
+  "license": "MIT",
+  "homepage": "git@github.com:hweeks/marionette-framework.git",
+  "dependencies": {
+    "express": "^4.13.1"
+  }
+}
